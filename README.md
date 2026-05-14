@@ -1,2 +1,0 @@
-# knwn-app
-knwn app
