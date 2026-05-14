@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFonts } from 'expo-font';
 import {
+  Oswald_500Medium,
   Oswald_700Bold,
 } from '@expo-google-fonts/oswald';
 import {
@@ -17,10 +18,12 @@ import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RootNavigator from './src/navigation/RootNavigator';
+import { UserProvider } from './src/context/UserContext';
 import { colors } from './src/theme/tokens';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
+    Oswald_500Medium,
     Oswald_700Bold,
     CormorantGaramond_300Light,
     CormorantGaramond_400Regular,
@@ -39,10 +42,12 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <StatusBar style="light" backgroundColor={colors.background} />
-      <RootNavigator />
-    </SafeAreaProvider>
+    <UserProvider>
+      <SafeAreaProvider>
+        <StatusBar style="light" backgroundColor={colors.background} />
+        <RootNavigator />
+      </SafeAreaProvider>
+    </UserProvider>
   );
 }
 

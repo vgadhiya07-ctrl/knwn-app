@@ -9,6 +9,7 @@ export const colors = {
 } as const;
 
 export const fonts = {
+  oswald500: 'Oswald_500Medium',
   oswald700: 'Oswald_700Bold',
   cormorant300: 'CormorantGaramond_300Light',
   cormorant400: 'CormorantGaramond_400Regular',

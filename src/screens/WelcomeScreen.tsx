@@ -4,13 +4,14 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
 } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/RootNavigator';
 import { colors, fonts, spacing } from '../theme/tokens';
 
-const { width } = Dimensions.get('window');
+type Props = NativeStackScreenProps<RootStackParamList, 'Welcome'>;
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -24,7 +25,11 @@ export default function WelcomeScreen() {
           Built for the relationships that actually move your career.
         </Text>
 
-        <TouchableOpacity style={styles.button} activeOpacity={0.85}>
+        <TouchableOpacity
+          style={styles.button}
+          activeOpacity={0.85}
+          onPress={() => navigation.navigate('MeCardCreation')}
+        >
           <Text style={styles.buttonText}>Create your Me Card</Text>
         </TouchableOpacity>
       </View>
